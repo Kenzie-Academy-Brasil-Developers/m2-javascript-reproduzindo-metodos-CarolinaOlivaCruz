@@ -1,4 +1,4 @@
-array = [1, 2, 3, 4, 5]
+array = [1, 2, 3, 4, 5, 2]
 
 // For Each
 let minhaCallBackForEach = (element, i, array) => array[i] = `Número ${element} na posição: ${i}, veio desse array: ${array}`;
@@ -10,7 +10,7 @@ function meuMetodoforEach(array, callback) {
     }
 }
 meuMetodoforEach(array, minhaCallBackForEach)
-// console.table(array)
+
 
 
 
@@ -27,7 +27,7 @@ function meuMetodoMap(array, callback) {
     }
     return newArray
 }
-// console.log(meuMetodoMap(array, minhaCallBackMap))
+
 
 
 // Filter
@@ -48,24 +48,90 @@ function meuMetodoFilter(array, callback) {
     }
     return newArray
 }
-// console.log(meuMetodoFilter(array, minhaCallBackFilter))
 
 
-// Reduce
-let total = 0
-function minhaCallBackReduce(element) {
-    total = total += element
-    return total
+
+//Reduce
+function minhaCallBackReduce(total, element) {
+    return total + element
 }
 
 function meuMetodoReduce(array, callback) {
-
+    let total = 0
     for (let i = 0; i < array.length; i++) {
         element = array[i]
-        callback(element)
+        total = callback(total, element)
     }
-   
+    return total
 }
-console.log(meuMetodoReduce(array, minhaCallBackReduce))
 
 
+
+
+//Find
+
+function minhaCallBackFind(element,    num){
+    if(element > num) {
+        return true
+    }
+}
+
+function meuMetodoFind(array, callback){
+    let elementEncontrado = false
+    for(let i = 0; i < array.length; i++){
+        element = array[i]
+        elementEncontrado = callback(element, 2)
+        if(elementEncontrado){
+            return array[i]
+        }
+    }
+     
+}
+
+
+
+
+//Includes
+function minhaCallBackIncludes(num, elemento){
+    if (elemento === num) {
+        return true
+    } else {
+        return false
+    }
+}
+
+function meuMetodoIncludes(array, num) {
+    let elemento
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === num) {
+            elemento = array[i]
+        }
+    }
+
+   return minhaCallBackIncludes(num, elemento)
+ 
+}
+
+
+
+
+
+// IndexOf
+
+// function minhaCallBackIndex(){
+
+// }
+
+// function index(array){
+//     let arrayIndex = []
+
+//         for(let i = 0; i < array.length; i++){
+//             if(array[i] !== -1){
+//                 arrayIndex.push(i)
+//             }
+                
+//     return arrayIndex
+// }
+// }
+// console.log(index(array, -1))
