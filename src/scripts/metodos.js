@@ -1,4 +1,4 @@
-array = [1, 2, 3, 4, 5, 2]
+let array = [1, 2, 3, 4, 5, 2]
 
 // For Each
 let minhaCallBackForEach = (element, i, array) => array[i] = `Número ${element} na posição: ${i}, veio desse array: ${array}`;
@@ -85,14 +85,23 @@ function meuMetodoFind(array, callback){
             return array[i]
         }
     }
-     
+
 }
 
 
 
 
 //Includes
-function minhaCallBackIncludes(num, elemento){
+
+function meuMetodoIncludes(array, num) {
+
+let elemento
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === num) {
+            elemento = array[i]
+        }
+    } 
     if (elemento === num) {
         return true
     } else {
@@ -100,38 +109,14 @@ function minhaCallBackIncludes(num, elemento){
     }
 }
 
-function meuMetodoIncludes(array, num) {
-    let elemento
 
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] === num) {
-            elemento = array[i]
-        }
+function meuMetodoindexOf(array, element) {
+  
+    for(let i = 0; i < array.length; i++){
+        if(array[i] === element){
+            return i
+        } 
     }
-
-   return minhaCallBackIncludes(num, elemento)
- 
+    return -1
 }
 
-
-
-
-
-// IndexOf
-
-// function minhaCallBackIndex(){
-
-// }
-
-// function index(array){
-//     let arrayIndex = []
-
-//         for(let i = 0; i < array.length; i++){
-//             if(array[i] !== -1){
-//                 arrayIndex.push(i)
-//             }
-                
-//     return arrayIndex
-// }
-// }
-// console.log(index(array, -1))
